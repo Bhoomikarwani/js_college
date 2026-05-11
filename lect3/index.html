@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+                                           //   scope( kis ko kha se aaccess kar sakte hai)
+
+        // {   // block
+        //    var a=8;  
+        //    let b=3;
+        // }
+        // console.log(a); // 8  (var keywoerd accessible from every place)
+        // console.log(b);  // (b is not defined )  
+
+        // if(true){
+        //   // var a=4;  // if kai bhaar access ho jayega
+        //    let a=9;    // a is not defined 
+        // }
+        // else{
+        //     console.log("hehe")
+        // }
+        // console.log(a)
+
+
+        // function sum(){
+        //     var a=9;   
+        //     let b=3;
+        // }
+        // console.log(a);  // a is not defined (kisi fn. kai andar se hum var keyword ko access nhi kar sakte)
+        // console.log(b);
+        // sum()
+
+
+                                  // (this) keyword points towards the object
+        // let student={
+        //     id:1,
+        //     name:"bhoomi",
+        //     isPass:true,
+        //     sum:function(){
+        //         //console.log("hello")
+        //         console.log(this)  // print or point towards this current object
+        //     }
+        // }                           
+        // student.sum()
+
+
+        // console.log(this)    //window
+        // console.log(window)  //window
+
+        //'use strict'  // -> undefined using this we get undefined
+        // function sum(){
+        //     console.log(this)  // -> window
+        // }
+        // sum()
+
+
+        // let sum=()=>{
+        //       console.log(this)  // -> window
+        // }
+        // sum()
+
+
+        // let student={
+        //     id:1,
+        //     name:"bhoomi",
+        //     isPass:true,
+        //     sum:()=>{
+        //         console.log(this)  //-> (window) arrow function kai case mai this (current object ko point nhi karta hai)
+        //     }
+        // }                           
+        // student.sum()
+
+
+        //      var id=20
+        // let student={
+        //     id:1,
+        //     name:"bhoomi",
+        //     isPass:true,
+        //     sum:function(){
+        //         console.log(this.id)  //1
+        //     }
+        // }                           
+        // student.sum()
+
+        
+        let student={
+            id:1,
+            name:"bhoomi",
+            isPass:true,
+            sum:function(){
+                //console.log(this.id)  //1
+                let s=()=>{
+                    console.log(this.id);  // point towards parent object
+                }
+                s()
+            }
+        }                           
+        student.sum()
+
+
+    </script>
+</body>
+</html>

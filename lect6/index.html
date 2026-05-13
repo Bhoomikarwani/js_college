@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- // async programinggg-->>
+     <script>
+        function step1(fn){
+            setTimeout(()=>{
+                    console.log("selectedddd");
+                    fn();
+            },5000)
+        }
+        function step2(fn){
+            setTimeout(()=>{
+                 console.log("caption added");
+                 fn();   
+            },4000)
+        }
+        function step3(fn){
+            setTimeout(()=>{
+                console.log("filter added");
+                fn();
+            },3000)
+        }
+        function step4(){
+            setTimeout(()=>{
+                console.log("posted");
+            },2000)
+        }
+        
+        step1(function(){      // call back concept
+            step2(function(){
+                step3(function(){
+                     step4();
+                })
+            })
+        })
+
+       
+        
+        
+     </script>
+</body>
+</html>

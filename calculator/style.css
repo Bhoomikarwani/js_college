@@ -1,0 +1,60 @@
+/* Basic Reset and Center */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f4f4f9;
+  font-family: sans-serif;
+}
+
+/* Calculator Container */
+div:has(input) {
+  background: #333;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Display Screen */
+input {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 15px;
+  text-align: right;
+  font-size: 1.5rem;
+  padding: 10px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Buttons Grid Layout */
+div > div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 10px;
+}
+
+/* Button Styling */
+button {
+  padding: 20px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  background: #555;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #777;
+}
+
+/* Specific button accents */
+button:last-child {
+  background: #ff9500; /* Equal sign */
+  grid-column: span 1;
+}  

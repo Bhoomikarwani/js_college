@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding:0;
+}
+
+body{
+    background-color: #dedbd2;
+    text-align: center;
+}
+
+.container{
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game{
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    flex-wrap: wrap; /* if line is full ,come to next line*/
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    height: 18vmin;
+    width:18vmin;
+    border:none;
+    background-color:#b0c4b1 ;
+    margin: 0 5px;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgb(0, 0, 0,0) ;
+    font-size: 8vmin;
+    color: #4a5759;
+}
+
+#reset-btn{
+    padding: 1rem;
+    font-size: 1.25rem;
+    border-radius:1rem ;
+    background-color: #edafb8;
+    border: none;
+}
+
+#new-btn{
+    padding: 1rem;
+    font-size: 1.25rem;
+    border-radius:1rem ;
+    background-color: #edafb8;
+    border: none;
+}
+
+#msg{
+    font-size: 4vmin;
+    font-weight: 200;
+}
+
+.msg-container{
+    height: 100vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column ;
+    gap:4rem;
+}
+.hide{
+    display: none;
+}
+.x{
+    color:coral;
+    font-size: 8vmin;
+}
+
+/* Media Query for Mobile Devices (max-width: 600px) */
+@media (max-width: 600px) {
+    .container {
+        height: 60vh; /* Give more room for the header and buttons */
+    }
+
+    .game {
+        height: 90vw; /* Use vw (viewport width) for a better fit on narrow screens */
+        width: 90vw;
+    }
+
+    .box {
+        height: 28vw; /* Scale boxes up to fill the 3x3 grid more clearly */
+        width: 28vw;
+        font-size: 15vmin; /* Increase the size of 'X' and 'O' symbols */
+    }
+
+    h1 {
+        font-size: 8vw;
+        margin-top: 20px;
+    }
+
+    #reset-btn, #new-btn {
+        padding: 0.8rem;
+        font-size: 1rem;
+        width: 80%; /* Make buttons easier to tap on mobile */
+        margin: 10px auto;
+    }
+
+    #msg {
+        font-size: 8vw;
+    }
+}

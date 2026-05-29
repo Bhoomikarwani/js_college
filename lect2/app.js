@@ -39,19 +39,53 @@
 
                                         // methods on array
 let arr=[1,2,3,4,5]
-console.log(arr.length)
-arr.push(5)
-console.log(arr)
-arr.pop()
-console.log(arr,"pop")
-arr.unshift(6) // adds an element at the begining of array
-console.log(arr)
-arr.shift()    // remove the first element of the array
-console.log(arr)
+// console.log(arr.length)
+// arr.push(5)
+// console.log(arr)
+// arr.pop()
+// console.log(arr,"pop")
+// arr.unshift(6) // adds an element at the begining of array
+// console.log(arr)
+// arr.shift()    // remove the first element of the array
+// console.log(arr)
 
-arr.forEach((a,b,c)=>{
-    //console.log(a,'a')
-    //console.log(b,'b')
+// arr.forEach((a,b,c)=>{    //a gives val , b gives index , c gives array on each iteration 
+//     //console.log(a,'a')
+//     //console.log(b,'b')
     
-    console.log(c,'c')
+//    // console.log(c,'c')
+//     return a*3   // gives no output (for each does not return anything)
+// })
+
+// let arr1 = arr.map((a,b,c)=>{ 
+//     return a*2
+// })
+// console.log(arr1)
+
+
+// let arr2 = arr.filter((a,b,c)=>{ 
+//     return a>3
+// })
+// console.log(arr2)
+
+
+// let sum = arr.reduce((a,b,c,d)=>{
+//     console.log(a)
+//     // return a+b
+// },)
+// console.log(sum)
+
+
+arr = [1,2,3,4,5,6,7,8]
+let arr1 = arr.filter((a)=>{
+    return a>2
+})
+let arr2 = arr1.filter((a)=>{
+    if (a%2 == 0){
+        return a
+    } 
+})
+arr2.reduce((a,b,c,d)=>{
+    
+    return a+b
 })

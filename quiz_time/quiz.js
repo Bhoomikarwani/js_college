@@ -31,6 +31,14 @@ const questions = [
     }
 ];
 
+// questions.forEach((val, index) => {
+//   console.log(val.question);
+// })
+
+// questions.forEach((val, index) => {
+//     console.log(val.options[1]);
+// })
+
 let currentQuestion =0;
 let score =0 ;
 let timeLeft = 15;

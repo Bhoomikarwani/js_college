@@ -183,9 +183,10 @@
   }
 } */
 
-
-div{
-  /*border:2px solid black;*/
+        
+                              /* form */
+/*div{
+  /*border:2px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -198,4 +199,31 @@ form{
   width: 170px;
   display: flex;
   
+}*/
+ 
+
+
+
+#products{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-evenly;
+
+}
+.cards{
+  border: none;
+  margin-bottom: 30px;
+  margin: 30px 30px;
+  background-color: rgb(246, 243, 243);
+  box-shadow: rgba(8, 7, 7, 0.201) 0px 3px 8px;
+  border-radius: 3px;
+}
+.image{
+  height: 150px;
+  width: 200px;
+}
+.sizeButton{
+  height: 50px;
+  width:55px;
 }

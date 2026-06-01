@@ -152,39 +152,141 @@
 
 
                                         // useEffect
+// import React, { useEffect } from 'react'
+// import { useState } from "react";
+// import './App.css';
+
+// const App = () => {
+//   let [apiData, SetApiData] = useState([]);
+
+//   useEffect(()=>{       
+//     //console.log("hello");  
+//     async function call() {
+//       let res = await fetch("https://dummyjson.com/products");
+//       let data = await res.json();
+//       console.log(data);
+
+//       SetApiData(data.products);
+//     }
+//     call()
+    
+//   },[]) 
+  
+//   return (
+//     <div id="products">
+//        {     
+//         apiData.map((a)=>{
+//            return(
+//             <div className = "cards"> 
+//               <h1>{a.id}</h1>
+//               <img src={a.thumbnail} className="image"/>
+//             </div>
+//            )
+//         })
+//       }  
+
+     
+    
+//     </div>
+//   )
+// }
+
+// export default App        
+
+
+  
+
+                                                        // Task 1
+// import React, { useEffect } from 'react'
+// import { useState } from "react";
+// import './App.css';
+
+// export const App = () => {
+//   //let [apiData, SetApiData] = useState([]);
+//   let [input, SetInput] =  useState("");
+     
+//   async function call() {
+//       //console.log("hello")
+//       if(!input.trim()){
+//         alert("kuch nhi hai")
+//         return
+//       }
+
+//       let res = await fetch(`https://dummyjson.com/products/search?q=${input}`);
+//       let data = await res.json();
+//       console.log(data);
+
+//   }
+  
+
+//   function fun1(e){
+//     //console.log(e.target.value);
+//     SetInput(e.target.value)
+//   }
+//   return (
+//     <div>
+//       <input type="text" onChange={fun1}/>
+//       <button onClick={call}>Check</button>
+//     </div>
+//   )
+// }
+// export default App
+
+                                                     // Task 2
+
 import React, { useEffect } from 'react'
 import { useState } from "react";
-
-
+import './App.css';
 
 const App = () => {
-  let[count, SetCount] = useState(0);
-  let[city , SetCity]  = useState("goa");
-  //console.log("hello");  // -> hello baar-baar print ho rha hai means jab count increase ho rha toh page bhi reload baar-baar ho rha h
+  let [apiData,setApiData]= useState([])
 
-  // useEffect  // ->  useEffect  kai andar jo code likha hoga vo only ek baar hi run hoga 
-  // always we call api inside useEffect because ek hi bar data ko fetch karna hai
-  useEffect(()=>{       
-    console.log("hello");  
-    async function call() {
-      let res = await fetch("https://jsonplaceholder.typicode.com/todos");
+  useEffect(()=>{
+    async function call(){
+      let res = await fetch("https://dummyjson.com/products");
       let data = await res.json();
       console.log(data);
+      setApiData(data.products);
     }
     call()
-    
-  },[city])    // (dependency) jab city ki value change hogi tab bhi ek baar hello print hoga
-
-
+  },[])
+  
+  function fun1(){
+     let sortData = [...apiData].sort((a,b)=>{
+         return a.price - b.price
+     })
+     setApiData(sortData)
+     console.log(sortData,"hello");
+  }
+  function fun2(){
+     let sortData = [...apiData].sort((a,b)=>{
+         return b.price - a.price
+     })
+     setApiData(sortData)
+     console.log(sortData,"hello");
+  }
 
   return (
-    <div>
-      <h2>{count}</h2>
-      <h4>{city}</h4>
-      <button onClick={()=>SetCount(count+1)}>Click</button>
-      <button onClick={()=>SetCity("manali")}>change city</button>
+    <div id="products">
+        <div> 
+          <button className='sizeButton' onClick={fun1}>Low</button>
+          <button className='sizeButton' onClick={fun2}>High</button>
+        </div>
+          {
+            apiData.map((a)=>{
+              return(
+                <div>
+                  <h3>{a.id}</h3>
+                  <img src={a.thumbnail} className="image"/>
+                  <h3 className='title'>Product : {a.title}</h3>
+                  <h3 className='price'>Price : {a.price}</h3>
+                </div>
+              )
+            })
+          }
     </div>
   )
 }
 
-export default App                                        
+export default App
+                                                     

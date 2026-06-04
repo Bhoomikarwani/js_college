@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import { useState } from "react";
 import './App.css'
 const Todo = () => {
+    let [index,setIndex] = useState(null)
     let [task , setTask] = useState("")
     let [todos , setTodos] = useState(()=>{
       let data = localStorage.getItem("key")
@@ -21,11 +22,7 @@ const Todo = () => {
       console.log("hello")
       setTask(e.target.value)
     }
-    function fun2(){
-      console.log("hi")
-      setTodos([...todos , task])
-    }
-
+    
     function d(id){
       console.log(id)
       let updateData = todos.filter((todo,index)=>{
@@ -33,6 +30,29 @@ const Todo = () => {
       })
       setTodos(updateData)
     }
+
+    function edit(index){
+         setTask(todos[index])
+         setIndex(index)
+    }
+
+    function handleOrUpdate(){
+      if(task.trim()==""){
+        return;
+      }
+      console.log("hello");
+
+      if(index != null){
+        let  updateData = [...todos]
+        updateData[index]= task
+        setTodos(updateData)
+      }
+      else{
+        setTodos([...todos,task])
+        setTask("")
+      }
+    }
+
   return (
     <div className='container'>
           
@@ -43,7 +63,9 @@ const Todo = () => {
                      id="input field"
                      onChange={fun1}/>
 
-                  <button onClick={fun2}>Add</button>
+                  <button onClick={handleOrUpdate}>
+                         {index == null?"Add":"Update"}
+                  </button>
               </div>
          
 
@@ -54,7 +76,7 @@ const Todo = () => {
                     <span>{todo}</span>
 
                     <div className='actions'>
-                       <button>Edit</button>
+                       <button onClick={()=>{edit(index)}}>Edit</button>
                        <button onClick={()=>{d(index)}}>Delete</button>
                     </div>
               </div>

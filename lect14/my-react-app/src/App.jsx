@@ -234,59 +234,163 @@
 
                                                      // Task 2
 
-import React, { useEffect } from 'react'
-import { useState } from "react";
-import './App.css';
+// import React, { useEffect } from 'react'
+// import { useState } from "react";
+// import './App.css';
+
+// const App = () => {
+//   let [apiData,setApiData]= useState([])
+
+//   useEffect(()=>{
+//     async function call(){
+//       let res = await fetch("https://dummyjson.com/products");
+//       let data = await res.json();
+//       console.log(data);
+//       setApiData(data.products);
+//     }
+//     call()
+//   },[])
+  
+//   function fun1(){
+//      let sortData = [...apiData].sort((a,b)=>{
+//          return a.price - b.price
+//      })
+//      setApiData(sortData)
+//      console.log(sortData,"hello");
+//   }
+//   function fun2(){
+//      let sortData = [...apiData].sort((a,b)=>{
+//          return b.price - a.price
+//      })
+//      setApiData(sortData)
+//      console.log(sortData,"hello");
+//   }
+
+//   return (
+//     <div id="products">
+//         <div> 
+//           <button className='sizeButton' onClick={fun1}>Low</button>
+//           <button className='sizeButton' onClick={fun2}>High</button>
+//         </div>
+//           {
+//             apiData.map((a)=>{
+//               return(
+//                 <div>
+//                   <h3>{a.id}</h3>
+//                   <img src={a.thumbnail} className="image"/>
+//                   <h3 className='title'>Product : {a.title}</h3>
+//                   <h3 className='price'>Price : {a.price}</h3>
+//                 </div>
+//               )
+//             })
+//           }
+//     </div>
+//   )
+// }
+
+// export default App
+                                                     
+
+
+                                       // todo list    
+
+
+// import React from 'react'
+
+// import Todo from './Todo'
+// const App = () => {
+//   return (
+//     <div>
+//       <Todo/>
+//     </div>
+//   )
+// }
+
+// export default App
+
+                                      // reducer function like useState
+// import React from 'react'
+// import Reducer from './Reducer'
+
+// const App = () => {
+//   return (
+//     <div>
+//       <Reducer/>
+//     </div>
+//   )
+// }
+
+// export default App
+
+                                   // we want to share data from context to home file direct(props and drilling)
+                                   //link home with app
+                                   // create context , then export  to main
+                                   // link main with context
+                                   // jo bhi data lena hai vo main mai likhenge
+                                   //main-> app-> A-> b-> C
+// import React from 'react'
+// import Home from './Home'
+// const App = () => {
+//   return (
+//     <div><Home/></div>
+//   )
+// }
+
+// export default App                                   
+  
+                                   // add to cart
+
+// import React,{useState} from 'react'
+// import Home from "./Home"
+// import NavBar from "./NavBar"
+// import { Route, Routes } from "react-router-dom"
+// import Cart from "./Cart"
+
+
+
+// const App = () => {
+//   let [apiData,setApiData] =   useState([])
+//  let [cart,setCart]= useState([])
+//   return (
+
+//     <div>
+//       <NavBar/>
+//       <Routes>
+//         <Route path="/" element={<Home apiData={apiData}  setApiData={setApiData} cart={cart}  setCart={setCart}/>}/>
+//         <Route path="/cart" element={<Cart cart={cart}/>}/>
+//       </Routes>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+                                      // todo list with useReducer
+// import React from 'react'
+// import Todo from './Todo'
+
+// const App = () => {
+//   return (
+//     <div>
+//       <Todo/>
+//     </div>
+//   )
+// }
+
+// export default App   
+
+import React from 'react'
+import Todo from './Todo'
 
 const App = () => {
-  let [apiData,setApiData]= useState([])
-
-  useEffect(()=>{
-    async function call(){
-      let res = await fetch("https://dummyjson.com/products");
-      let data = await res.json();
-      console.log(data);
-      setApiData(data.products);
-    }
-    call()
-  },[])
-  
-  function fun1(){
-     let sortData = [...apiData].sort((a,b)=>{
-         return a.price - b.price
-     })
-     setApiData(sortData)
-     console.log(sortData,"hello");
-  }
-  function fun2(){
-     let sortData = [...apiData].sort((a,b)=>{
-         return b.price - a.price
-     })
-     setApiData(sortData)
-     console.log(sortData,"hello");
-  }
-
   return (
-    <div id="products">
-        <div> 
-          <button className='sizeButton' onClick={fun1}>Low</button>
-          <button className='sizeButton' onClick={fun2}>High</button>
-        </div>
-          {
-            apiData.map((a)=>{
-              return(
-                <div>
-                  <h3>{a.id}</h3>
-                  <img src={a.thumbnail} className="image"/>
-                  <h3 className='title'>Product : {a.title}</h3>
-                  <h3 className='price'>Price : {a.price}</h3>
-                </div>
-              )
-            })
-          }
+    <div>
+      <Todo/>
     </div>
   )
 }
 
 export default App
-                                                     
+

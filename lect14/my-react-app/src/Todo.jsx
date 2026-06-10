@@ -93,50 +93,95 @@
 
 
                                       // with use reducer
-import React,{useReducer} from 'react'
+// import React,{useReducer} from 'react'
+
+// const Todo = () => {
+
+//    let initialData={
+//         input:"",
+//         todos:[]
+//        // index:null
+//    }
+
+//   function reduser(state,action){
+
+//     if(action.type == "setTask"){
+//         return{
+//           ...state,
+//           input: action.payload
+//         }
+//     }
+//     else if(action.type == "addTask"){
+//          return{
+//            todos:[...state.todos, state.input],
+//            input:""
+//          }
+//     }
+//   }
+
+//   let [state, dispatch] = useReducer(reduser , initialData)
+
+//   return (
+//     <div id="container">
+//         <h1>Todo - List</h1>
+//         <div id="main_box">
+//             <input placeholder='Enter a Task' onChange={(e)=>dispatch({type:"setTask",payload:e.target.value})}/>
+//             <button onClick={()=>dispatch({type:"addTask"})}>Add</button>
+//         </div>
+
+//         <div id="show_list">
+//              {
+//               state.todos.map(val)
+//              }
+//         </div>
+
+//     </div>
+//   )
+// }
+
+// export default Todo                                      
+
+
+
+                                      //todo list using useContext
+import React, { useContext } from 'react'
+import { store_context } from './Context'
 
 const Todo = () => {
+  let {store , dispatch} = useContext(store_context)
 
-   let initialData={
-        input:"",
-        todos:[]
-       // index:null
-   }
-
-  function reduser(state,action){
-
-    if(action.type == "setTask"){
-        return{
-          ...state,
-          input: action.payload
-        }
-    }
-    else if(action.type == "addTask"){
-         return{
-           todos:[...state.todos, state.input],
-           input:""
-         }
-    }
+  function handle(){
+    
+     if(store.index !== null){
+         console.log("updated fn is called")
+         dispatch({type:"update"})
+     }
+     else{
+         dispatch({type:"add_input"})
+     }
   }
 
-  let [state, dispatch] = useReducer(reduser , initialData)
-
   return (
-    <div id="container">
-        <h1>Todo - List</h1>
-        <div id="main_box">
-            <input placeholder='Enter a Task' onChange={(e)=>dispatch({type:"setTask",payload:e.target.value})}/>
-            <button onClick={()=>dispatch({type:"addTask"})}>Add</button>
-        </div>
+    <div>
+      <input value={store.input} onChange={(e)=>dispatch({type:"set_input",payload:e.target.value})}/>
+      <button onClick={handle}>{store.index !== null?"Update":"Add"}</button>
+      {
+        store.todos.map((a,b)=>{
+          return(
+            <div>
+              <h2>{a}</h2>
 
-        <div id="show_list">
-             {
-              state.todos.map(val)
-             }
-        </div>
-
+              <div className='actions'>
+                        <button onClick={()=>dispatch({type:"edit_task",payload:b})}>Edit</button>  
+                        <button onClick={()=>dispatch({type:"delete_task",payload:b})}>Delete</button>
+              </div>
+            </div>  
+           )
+        })
+      }
     </div>
+
   )
 }
 
-export default Todo                                      
+export default Todo;                                      

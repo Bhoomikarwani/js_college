@@ -246,23 +246,24 @@ h1{
 }
 
 nav{
-  background-color: black;
+  background-color: rgb(126, 134, 148);
   height: 40px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-
 }
 li{
   color: snow;
+  list-style-type: none; 
+  text-decoration: none;
 }
-#card{
+/* #card{
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   /* height: 200px;
   width: 171px;
-  background-color: antiquewhite; */
+  background-color: antiquewhite; 
 }
 #main_card{
   height: 200px;
@@ -273,4 +274,5 @@ li{
 img{
   height: 80%;
   width: 80%;
-}                            
+}     
+*/

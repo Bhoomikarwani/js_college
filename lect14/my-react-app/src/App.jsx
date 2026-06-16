@@ -396,26 +396,137 @@
 
 
 
+// import React from 'react'
+// import Navbar from './Navbar'
+// import { Routes } from 'react-router-dom'
+// import { Route } from 'react-router-dom'
+// import Home from './Home'
+// import About from './About'
+// import Cart from './Cart'
+// const App = () => {
+//   return (
+//     <div>
+//       <Navbar/>
+
+//       <Routes>
+//         <Route path="/" element={<Home/>}/>
+//         <Route path="/about" element={<About/>}/>
+//         <Route path="/cart" element={<Cart/>}/>
+//       </Routes>
+
+//     </div>
+//   )
+// }
+
+// export default App
+
+
 import React from 'react'
-import Navbar from './Navbar'
-import { Routes } from 'react-router-dom'
-import { Route } from 'react-router-dom'
-import Home from './Home'
-import About from './About'
-import Cart from './Cart'
+
 const App = () => {
+   
+  // let arr = [1,2,4,5,7]
+  // Array.prototype.fun1 = function(){
+  //   console.log("hello")
+  // }
+  // arr.fun1()
+
+  // console.log(arr.prototype)
+  
+  // console.log(Object.prototype)
+
+
+                                     // return type
+  //let arr = [1,2,4,5,7]
+  // let data = arr.forEach((a,b,c)=>{
+  //      console.log(a)
+  //      return a
+  // })
+  // console.log(data)   // => undefined  (forEach function return arr return nhi karta hai)
+
+  // let data = arr.map((a,b,c)=>{
+  //      console.log(a)
+  //      return a
+  // })
+  // console.log(data) 
+
+                          // now we create customized function inside array prototype
+
+                                    // map function
+  //  Array.prototype.myMap = function(cb){    // cd is a parameter
+  //    let res = []
+  //    for(let i=0 ; i<this.length ; i++){    // this =arr
+  //     res.push(cb(this[i], i, this))        // cd fn. = >   (a,b,c)=>{
+  //                                           //              return a*2
+  //                                            //        }
+  //    }
+  //    return res
+  //  }
+
+
+  //  let arr=[1,2,3,4,5]
+  //  let data = arr.myMap(   (a,b,c)=>{
+  //     return a*2
+  //  })
+
+
+  //console.log(data)    // =>[2,4,6,8,10]
+
+
+                                    //customized filter function
+  //  Array.prototype.myfilter = function(cb){    // cd is a parameter
+  //    let res = []
+  //    for(let i=0 ; i<this.length ; i++){    
+  //       if(cb(this[i], i, this)){
+  //          res.push(this[i])
+  //       }               
+  //    }
+  //    return res
+  //  }
+
+
+  //  let arr=[1,2,3,4,5]
+  //  let data = arr.myfilter(   (a,b,c)=>{
+  //     return a>2
+  //  })
+
+
+  // console.log(data)   // =>[3,4,5]
+
+
+                                      // customized forEach function
+
+  // Array.prototype.myForEach = function(cd){
+  //    for(let i=0 ; i<this.length ; i++){  
+  //        cd(this[i],i,this)
+  //    }
+  // }
+
+
+  // let arr=[1,2,3,4,5]
+  // arr.myForEach((a,b,c)=>{
+  //    console.log(a)
+  // })
+  
+                                       //customized reduce function
+   Array.prototype.myReduce = function(cd , initialValue){
+      let sum  = initialValue;
+      for(let i=0 ; i<this.length ; i++){
+        sum = cd(sum , this[i] )
+      }
+      return sum;
+   }
+
+   let arr= [1,2,3,4,5]
+   let data = arr.myReduce((a,b,c,d) => {       // there are 2 arguments inside myReduce fn.
+      return a+b                                 // cd :  (a,b,c,d) => {  return a+b  } 
+   }, 10)                                        // initialValue : 10  (we have to pass initialVlaue it may be 0 also if we don't want it)   
+   console.log(data)
+
   return (
-    <div>
-      <Navbar/>
-
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/about" element={<About/>}/>
-        <Route path="/cart" element={<Cart/>}/>
-      </Routes>
-
-    </div>
+    <div>App</div>
   )
 }
 
-export default App
+export default App                                       
+
